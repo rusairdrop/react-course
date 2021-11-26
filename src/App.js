@@ -1,6 +1,8 @@
 import React, {useState} from "react";
-import PostItem from "./components/PostItem";
+import PostList from "./components/PostList";
+
 import './styles/App.css'
+
 
 function App() {
   const [posts, setPosts] = useState([
@@ -11,11 +13,12 @@ function App() {
   
   return (
     <div className="App">
-      <h1 style={{textAlign: 'center'}}>Список постов</h1>
-      {posts.map(post =>
-        <PostItem post={post} key={post.id}/>
-      )}
-    
+      <form>
+        <input type="text" placeholder='Post title'/>
+        <input type="text" placeholder='Post description'/>
+        <button>Создать пост</button>
+      </form>
+      <PostList posts={posts} title={'Список постов 1'}/>
     </div>
   );
 }
